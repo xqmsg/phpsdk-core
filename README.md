@@ -13,7 +13,7 @@ You may integrate this library into existing or new PHP applications in order to
 - XQ API Keys ( Generate keys at  https://manage.xqmsg.com )
 - PHP 7.4 or higher
 - Memcached 1.6 or higher.
-- PHPUnit 9.x ( For unit tests).
+- PHPUnit 9.5.1 or higher ( For unit tests).
 
 ### General Settings
 API keys and other settings can be applied to the SDK in one of two ways:
@@ -57,7 +57,7 @@ Run the following command from inside the main project folder to run the unit te
 SUBSCRIPTION_API_KEY=YOUR_SUB_KEY \
 VALIDATION_API_KEY=YOUR_VAL_KEY \
 DASHBOARD_API_KEY=YOUR_DASHBOARD_KEY \
-php /path/to/phpunit-9x.phar --no-configuration --test-suffix php tests
+php /path/to/phpunit.phar --no-configuration --test-suffix php tests
 ````
 
 **Note:** If the Config.php file was modified to include the keys directly, they will not need to be included above.
@@ -100,6 +100,20 @@ An email with an authorization link and a PIN code will be sent to the email add
 
   **i. Clicking Confirmation Link**
 After clicking on the confirmation link in the email, the user can then exchange their preauthorization token ( received in the previous step ) for a valid access token:
+
+```php
+$response = Exchange::with($sdk)->run();
+if (!$response->succeeded()){
+	// Something went wrong...
+	echo . $response->status();
+	die();
+}
+
+// Success - User is Authorized.
+```
+
+  **ii. Entering the PIN code**
+  Alternatively, the PIN code received can be used to validate account ownership. **Note that this method will fail if the authorization link has already been clicked**. The access token will automatically be saved once the PIN has been validated:
 
 ```php
 $arguments = [
