@@ -99,7 +99,7 @@ if (!$response->succeeded()){
 An email with an authorization link and a PIN code will be sent to the email address provided in the request. From this point on, a user has two ways of obtaining a valid access token:
 
   **i. Clicking Confirmation Link**:
-After clicking on the confirmation link in the email, the user can then exchange their preauthorization token ( received in the previous step ) for a valid access token:
+After clicking on the confirmation link in the email, the user can then exchange their pre-authorization token ( received in the previous step ) for a valid access token:
 
 ```php
 $response = Exchange::with($sdk)->run();
@@ -296,7 +296,7 @@ $sourcePath = __DIR__ . "/" . $filename;
  
  // This is where our decrypted file will be saved in the filesystem.
 // If this is not provided, the result will returned and not saved.
-$targetPath =  __DIR__ . "/Sample-encrypted.txt.xqf";
+$targetPath =  __DIR__ . "/sample.txt";
 
 
  $response = DecryptFile::with($sdk)->runWith( $source, $targetPath );
@@ -333,10 +333,23 @@ $response = GrantKeyAccess::with($sdk)->runWith($token, $emailsToAdd );
 }
 
 // Success - Jim and Joe will now be able to read the original message.
+
+// Revoke access for Joe alone.
+$emailsToAdd = array("joe@email.com");
+$response = RevokeKeyAccess::with($sdk)->runWith($token, $emailsToAdd );
+
+ if (!$response->succeeded()){
+	// Something went wrong...
+	echo . $response->status();
+	die();
+}
+
+// Success - Joe's access to this message has been revoked.
 ```
 
-
 ### Revoking a Message
+
+Access to an entire message can also be revoked. When this occurs, both the sender and all the recipients will lose all access to it. **Note that this action is not reversible**:
 
 ```php
  // Revoke all access to key.
