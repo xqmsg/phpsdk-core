@@ -98,7 +98,7 @@ if (!$response->succeeded()){
 
 An email with an authorization link and a PIN code will be sent to the email address provided in the request. From this point on, a user has two ways of obtaining a valid access token:
 
-  **i. Clicking Confirmation Link**
+  **i. Clicking Confirmation Link**:
 After clicking on the confirmation link in the email, the user can then exchange their preauthorization token ( received in the previous step ) for a valid access token:
 
 ```php
@@ -112,7 +112,7 @@ if (!$response->succeeded()){
 // Success - User is Authorized.
 ```
 
-  **ii. Entering the PIN code**
+  **ii. Entering the PIN code**:
   Alternatively, the PIN code received can be used to validate account ownership. **Note that this method will fail if the authorization link has already been clicked**. The access token will automatically be saved once the PIN has been validated:
 
 ```php
