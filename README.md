@@ -335,8 +335,8 @@ $response = GrantKeyAccess::with($sdk)->runWith($token, $emailsToAdd );
 // Success - Jim and Joe will now be able to read the original message.
 
 // Revoke access for Joe alone.
-$emailsToAdd = array("joe@email.com");
-$response = RevokeKeyAccess::with($sdk)->runWith($token, $emailsToAdd );
+$emailsToRemove = array("joe@email.com");
+$response = RevokeKeyAccess::with($sdk)->runWith($token, $emailsToRemove );
 
  if (!$response->succeeded()){
 	// Something went wrong...
