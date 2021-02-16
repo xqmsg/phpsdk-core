@@ -199,7 +199,7 @@ if (!$response->succeeded()){
 
 
 // Encryption was successful.
-// The data can be used in any fashion the user like.
+// The data can be used in any fashion the user likes.
 // Below, it is URL encoded for transmission as an email.
 $encrypted = $response->json();
 $url = $sdk->encodeLink($encrypted->data, $encrypted->token);
