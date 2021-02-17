@@ -64,7 +64,7 @@ class Exchange extends XQModule {
             $this->name(), $args,
             '',
             CallMethod::Get,
-            Config::SubscriptionKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
 
         if ($response->succeeded()) {

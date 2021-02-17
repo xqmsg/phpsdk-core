@@ -41,7 +41,7 @@ class DelegateAccess extends XQModule {
             $this->name(), [],
             json_encode($args, JSON_THROW_ON_ERROR),
             CallMethod::Get,
-            Config::SubscriptionKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
     }
 }

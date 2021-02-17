@@ -73,7 +73,7 @@ class RevokeKeyAccess extends XQModule {
             [],
             $body,
             CallMethod::Patch,
-            Config::ValidationKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
     }
 }

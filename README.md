@@ -21,10 +21,7 @@ API keys and other settings can be applied to the SDK in one of two ways:
 
    | KEY                  | DEFAULT VALUE                     |
    | -------------------- | --------------------------------- |
-   | DASHBOARD_API_KEY    | None ( Required )                 |
-   | SUBSCRIPTION_API_KEY | None ( Required )                 |
-   | VALIDATION_API_KEY   | None ( Required )                 |
-   | URL_DASHBOARD        | https://dashboard.xqmsg.net/v2    |
+   | API_KEY              | None ( Required )                 |
    | URL_SUBSCRIPTION     | https://subscription.xqmsg.net/v2 |
    | URL_VALIDATION       | https://validation.xqmsg.net/v2   |
    | URL_QUANTUM          | https://quantum.xqmsg.net/v2      |
@@ -54,9 +51,7 @@ public const CACHE_CLASS = SessionCacheController::class;
 Run the following command from inside the main project folder to run the unit tests:
 
 ````bash
-SUBSCRIPTION_API_KEY=YOUR_SUB_KEY \
-VALIDATION_API_KEY=YOUR_VAL_KEY \
-DASHBOARD_API_KEY=YOUR_DASHBOARD_KEY \
+API_KEY=YOUR_API_KEY \
 php /path/to/phpunit.phar --no-configuration --test-suffix php tests
 ````
 

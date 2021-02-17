@@ -42,7 +42,7 @@ class DeleteUser extends XQModule {
             $this->name(), [],
             '',
             CallMethod::Delete,
-            Config::SubscriptionKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
 
         if ($response->succeeded()) {

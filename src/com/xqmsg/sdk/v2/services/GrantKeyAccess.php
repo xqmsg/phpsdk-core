@@ -65,7 +65,7 @@ class GrantKeyAccess extends XQModule {
             [],
             $body,
             CallMethod::Post,
-            Config::ValidationKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
 
     }

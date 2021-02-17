@@ -60,7 +60,7 @@ class UpdateUserSettings extends XQModule {
             $this->name(), [],
             json_encode($args, JSON_THROW_ON_ERROR),
             CallMethod::Patch,
-            Config::SubscriptionKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization , $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
     }
 }

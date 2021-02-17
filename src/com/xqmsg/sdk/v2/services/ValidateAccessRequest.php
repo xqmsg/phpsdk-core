@@ -57,7 +57,7 @@ class ValidateAccessRequest extends XQModule {
             $this->name(), $args,
             '',
             CallMethod::Get,
-            Config::SubscriptionKey(), $preauthToken, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $preauthToken, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
 
         if ($response->succeeded()) {

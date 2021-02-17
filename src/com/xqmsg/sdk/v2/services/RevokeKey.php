@@ -67,7 +67,7 @@ class RevokeKey extends XQModule {
             [],
             '',
             CallMethod::Delete,
-            Config::ValidationKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
     }
 }

@@ -91,7 +91,7 @@ class AddKey extends XQModule
             $this->name(), [],
             json_encode($args, JSON_THROW_ON_ERROR),
             CallMethod::Post,
-            Config::SubscriptionKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
 
         if ($generated->succeeded()) {
@@ -100,7 +100,7 @@ class AddKey extends XQModule
                 $this->name(), [],
                 $generated->raw(),
                 CallMethod::Post,
-                Config::ValidationKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+                Config::ApiKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
             );
         }
 

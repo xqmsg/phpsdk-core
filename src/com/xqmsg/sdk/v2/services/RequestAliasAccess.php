@@ -57,7 +57,7 @@ class RequestAliasAccess extends XQModule {
             $this->name(), [],
             json_encode( $args, JSON_THROW_ON_ERROR ),
             CallMethod::Post,
-            Config::SubscriptionKey(), '', $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), '', $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
 
         if ($response->succeeded()) {

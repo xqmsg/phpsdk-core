@@ -1,7 +1,7 @@
-<?php /** @noinspection PhpUnusedAliasInspection */
+<?php
 
 use com\xqmsg\sdk\v2\algorithms\OTPv2Algorithm;
-use com\xqmsg\sdk\v2\caching\MemcachedController;
+//use com\xqmsg\sdk\v2\caching\MemcachedController;
 use com\xqmsg\sdk\v2\caching\SessionCacheController;
 
 /**
@@ -12,15 +12,7 @@ class Config {
     /**
      * The API key for interacting with the subscription backend.
      */
-    private const SUBSCRIPTION_API_KEY = "YOUR_XQ_SUBSCRIPTION_KEY";
-    /**
-     * The API key for interacting with the dashboard/management backend.
-     */
-    private const DASHBOARD_API_KEY = "YOUR_DASHBOARD_API_KEY";
-    /**
-     * The API key for interacting with the validation backend.
-     */
-    private const VALIDATION_API_KEY = "YOUR_XQ_VALIDATION_KEY";
+    private const API_KEY = "YOUR_API_KEY";
     /**
      * The main XQ subscription server that this implementation will be comumunicating with. Will remain the same in
      * most cases, unless the user has an enterprise XQ installation.
@@ -36,11 +28,7 @@ class Config {
      * most cases, unless the user has an enterprise XQ installation.
      */
     public const URL_QUANTUM = "https://quantum.xqmsg.net/v2";
-    /**
-     * The main dashboard/management server that this implementation will be communicating with. Will remain the same in
-     * most cases, unless the user has an enterprise XQ installation.
-     */
-    public const URL_DASHBOARD = "https://dashboard.xqmsg.net/v2";
+
     /**
      * The prefix that will be attached to encrypted text links. In most cases this will not change, unless the user
      * has a custom front-end for decrypting messages.
@@ -68,20 +56,9 @@ class Config {
 
     public const CACHE_CLASS = SessionCacheController::class;
 
-    public static function DashboardKey() : string {
-        return ($value = getenv("DASHBOARD_API_KEY")) ? $value : self::DASHBOARD_API_KEY ;
-    }
 
-    public static function SubscriptionKey() : string {
-        return ($value = getenv("SUBSCRIPTION_API_KEY")) ? $value : self::SUBSCRIPTION_API_KEY ;
-    }
-
-    public static function ValidationKey() : string {
-        return ($value = getenv("VALIDATION_API_KEY")) ? $value : self::VALIDATION_API_KEY ;
-    }
-
-    public static function DashboardHost() : string {
-        return ($value = getenv("URL_DASHBOARD")) ? $value : self::URL_DASHBOARD ;
+    public static function ApiKey() : string {
+        return ($value = getenv("API_KEY")) ? $value : self::API_KEY ;
     }
 
     public static function SubscriptionHost() : string {

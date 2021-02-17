@@ -76,7 +76,7 @@ class MergeTokens extends XQModule {
             [],
             json_encode([self::TOKENS => $tokens], JSON_THROW_ON_ERROR),
             CallMethod::Post,
-            Config::SubscriptionKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
     }
 }

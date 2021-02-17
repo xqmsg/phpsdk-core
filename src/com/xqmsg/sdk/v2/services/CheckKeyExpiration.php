@@ -67,7 +67,7 @@ class CheckKeyExpiration extends XQModule {
             [],
             '',
             CallMethod::Get,
-            Config::ValidationKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
+            Config::ApiKey(), $authorization, $args['_lang'] ?? Config::DEFAULT_LANGUAGE
         );
 
         if ($response->succeeded()) {
